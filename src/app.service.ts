@@ -6,3 +6,10 @@ export class AppService {
     return 'Hello World!';
   }
 }
+
+@Injectable()
+export class GoodbyeService {
+  getGoodbye(): string {
+    return 'Goodbye World from service!';
+  }
+}
