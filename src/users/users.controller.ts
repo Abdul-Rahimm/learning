@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -27,8 +28,8 @@ export class UsersController {
   }
 
   @Get(':id') // GET /users/:id
-  findOne(@Param('id') id: string) {
-    return this.usersService.findone(parseInt(id, 10));
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.usersService.findone(id);
   }
 
   @Post() // POST /users
@@ -37,12 +38,12 @@ export class UsersController {
   }
 
   @Patch(':id') // PATCH /users/:id
-  update(@Param('id') id: string, @Body() userUpdate: object) {
-    return this.usersService.update(parseInt(id, 10), userUpdate);
+  update(@Param('id', ParseIntPipe) id: number, @Body() userUpdate: object) {
+    return this.usersService.update(id, userUpdate);
   }
 
   @Delete(':id') // GET /users/:id
-  delete(@Param('id') id: string) {
-    return this.usersService.delete(parseInt(id, 10));
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.usersService.delete(id);
   }
 }
