@@ -32,7 +32,8 @@ export class UsersController {
 
   @Get(':id') // GET /users/:id
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.usersService.findone(id);
+    const user = this.usersService.findone(id);
+    return user;
   }
 
   @Post() // POST /users
