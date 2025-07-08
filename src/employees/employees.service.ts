@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateEmployeeDto } from './dto/create-employee.dto';
-import { UpdateEmployeeDto } from './dto/update-employee.dto';
+import { Prisma } from 'generated/prisma';
+import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class EmployeesService {
-  create(createEmployeeDto: CreateEmployeeDto) {
+  create(createEmployeeDto: any) {
     return 'This action adds a new employee';
   }
 
@@ -16,7 +16,7 @@ export class EmployeesService {
     return `This action returns a #${id} employee`;
   }
 
-  update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
+  update(id: number, updateEmployeeDto: any) {
     return `This action updates a #${id} employee`;
   }
 
